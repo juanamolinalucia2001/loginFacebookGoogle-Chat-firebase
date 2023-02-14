@@ -63,7 +63,7 @@ export default {
 
            this.setUsuario(user)
            
-            router.push({name:'home'})
+            router.push({name:'admin'})
         }catch(error){
             console.log(error)
         }
