@@ -8,13 +8,15 @@
 
                 <div :class="item.nombre === usuario.nombre ? 'text-md-right' : 'text-md-left'"
                 v-for="(item, index) in mensajes" :key="index">
-                    <v-chip class="ma-2" :color="item.nombre === usuario.nombre ? 'pink': 'blue'"  text-color="white">
+                   
+                    <v-chip class=""  :color="item.nombre === usuario.nombre ? 'pink': 'blue'"  text-color="white">
                         <v-avatar left>
                             <v-img :src="item.foto"></v-img>
                          </v-avatar>
-                        {{item.mensaje}}                   
+                        <p><b>{{item.nombre}}</b>: {{item.mensaje}} </p>                 
                     </v-chip>
                     <p class="caption mr-2">{{item.fecha}}</p>
+
                 </div>
 
             </v-card-text>
@@ -83,7 +85,7 @@ export default {
                     mensaje: doc.data().mensaje,
                     foto:doc.data().foto,
                     nombre:doc.data().nombre,
-                    fecha:moment(doc.data().fecha).format('lll')
+                    fecha:moment(doc.data().fecha).calendar()
 
                })
             });
